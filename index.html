@@ -3,57 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Formulário de Triagem</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .form-container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #000;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .header h2 {
-            margin: 0;
-        }
-        .header .number {
-            color: red;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #000;
-            padding: 8px;
-            text-align: center;
-        }
-        input[type="text"], input[type="date"], textarea {
-            width: 100%;
-            padding: 5px;
-            box-sizing: border-box;
-            border: none;
-            text-align: center;
-        }
-        input[type="text"] {
-            border-bottom: 1px solid #000;
-        }
-        .footer {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .footer input {
-            border-bottom: 1px solid #000;
-            text-align: left;
-        }
-    </style>
 </head>
 <body>
 
@@ -158,21 +109,7 @@
     </div>
 </div>
 
-<script>
-    // Função para gerar número aleatório
-    function generateOrderNumber() {
-        const orderNumber = Math.floor(Math.random() * 1000000);
-        document.getElementById('orderNumber').textContent = orderNumber;
-    }
-
-    // Função para imprimir
-    function printPage() {
-        window.print();
-    }
-
-    // Gera o número assim que a página carrega
-    window.onload = generateOrderNumber;
-</script>
+<script src="script.js" ></script>
 
 </body>
 </html>
