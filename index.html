@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Triagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #000;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h2 {
+            margin: 0;
+        }
+        .header .number {
+            color: red;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        input[type="text"], input[type="date"], textarea {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+            border: none;
+            text-align: center;
+        }
+        input[type="text"] {
+            border-bottom: 1px solid #000;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .footer input {
+            border-bottom: 1px solid #000;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="header">
+        <h2>Digital Serviços - Formulário de Triagem</h2>
+        <div>
+            Nº <span id="orderNumber" class="number"></span><br>
+            Data: <input type="date" value="2024-10-16" />
+        </div>
+    </div>
+
+    <!-- Empresa e Departamento -->
+    <div>
+        <label>Empresa: <input type="text" placeholder="Nome da Empresa"></label>
+        <label>Depto: <input type="text" placeholder="Departamento"></label>
+    </div>
+
+    <!-- Tabela de Pré-Triagem -->
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Qtd</th>
+                <th>Observações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" placeholder="SEDEX"></td>
+                <td><input type="text" placeholder="0"></td>
+                <td><textarea rows="2" placeholder="Observações"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="PAC"></td>
+                <td><input type="text" placeholder="0"></td>
+                <td><textarea rows="2" placeholder="Observações"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Total:</strong></td>
+                <td><input type="text" placeholder="0" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Tabela Internacional -->
+    <h4>Internacional</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Qtd</th>
+                <th>Observações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" placeholder="SEDEX MUNDIAL"></td>
+                <td><input type="text" placeholder="0"></td>
+                <td><textarea rows="2" placeholder="Observações"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Total:</strong></td>
+                <td><input type="text" placeholder="0" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Tabela de Correspondências -->
+    <h4>Correspondências</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Qtd</th>
+                <th>Observações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" placeholder="CARTA"></td>
+                <td><input type="text" placeholder="0"></td>
+                <td><textarea rows="2" placeholder="Observações"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="CARTA SIMPLES"></td>
+                <td><input type="text" placeholder="0"></td>
+                <td><textarea rows="2" placeholder="Observações"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>Total Geral:</strong></td>
+                <td><input type="text" placeholder="0" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Rodapé -->
+    <div class="footer">
+        <label>Responsável: <input type="text" name="responsavel" placeholder="Nome do Responsável"></label><br>
+        <label>Assinatura: ________________________</label><br>
+        <button onclick="printPage()">Imprimir</button>
+    </div>
+</div>
+
+<script>
+    // Função para gerar número aleatório
+    function generateOrderNumber() {
+        const orderNumber = Math.floor(Math.random() * 1000000);
+        document.getElementById('orderNumber').textContent = orderNumber;
+    }
+
+    // Função para imprimir
+    function printPage() {
+        window.print();
+    }
+
+    // Gera o número assim que a página carrega
+    window.onload = generateOrderNumber;
+</script>
+
+</body>
+</html>
