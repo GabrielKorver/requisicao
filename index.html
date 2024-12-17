@@ -6,14 +6,15 @@
     <link rel="stylesheet" href="style.css">
     <title>Formulário de Triagem</title>
 </head>
-<body>
+<body onload="generateOrderNumber()">
 
 <div class="form-container">
     <div class="header">
         <h2>Digital Serviços - Formulário de Triagem</h2>
         <div>
-            Nº <span id="orderNumber" class="number"></span><br>
-            Data: <input type="date" value="2024-10-16" />
+            Nº <span id="orderNumber" class="number"></span>
+            <br>
+            <p id="res"></p>
         </div>
     </div>
 
