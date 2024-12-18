@@ -1,18 +1,23 @@
-// Função para gerar número aleatório
 function generateOrderNumber() {
     const orderNumber = Math.floor(Math.random() * 1000000);
     document.getElementById('orderNumber').textContent = orderNumber;
 
-    let resultado = document.querySelector("#res");
+    const inputData = document.querySelector('#input_date');
+    const inputHora = document.querySelector('#input_hours');
 
     let dataAtual = new Date();
-    let dia = dataAtual.getDate().toString().padStart(2, '0'); // Adiciona zero à esquerda se necessário
-    let mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0'); // Adiciona zero à esquerda se necessário
     let ano = dataAtual.getFullYear();
+    let mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+    let dia = String(dataAtual.getDate()).padStart(2, '0');
+    
+    // Formate horas e minutos com dois dígitos
+    let hora = String(dataAtual.getHours()).padStart(2, '0');
+    let min = String(dataAtual.getMinutes()).padStart(2, '0');
 
-    resultado.innerHTML = `${dia}/${mes}/${ano}`
-
+    inputData.value = `${ano}-${mes}-${dia}`;
+    inputHora.value = `${hora}:${min}`;
 }
+
 
 // Função para imprimir
 function printPage() {
